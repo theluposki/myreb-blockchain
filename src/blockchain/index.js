@@ -1,6 +1,7 @@
+import { Util } from "../util.js";
 import { mineBlock, GENESIS, blockHash } from "./block.js";
 
-let chain = [GENESIS()]
+let chain = Util.readFile()
 
 export const addBlock = (data) => {
   const lastBlock = chain[chain.length - 1]
@@ -8,6 +9,8 @@ export const addBlock = (data) => {
   const block = mineBlock(lastBlock, data)
 
   chain.push(block)
+
+  Util.writeFile(chain)
 
   return block
 }

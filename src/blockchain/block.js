@@ -13,7 +13,7 @@ export const GENESIS = () => {
 }
 
 const Block = ({ timestamp, lastHash, hash, data, nonce, difficulty }) => {
-
+  difficulty = DIFFICULTY
   return {
     timestamp,
     lastHash,
@@ -54,7 +54,9 @@ export const mineBlock = (lastBlock, data) => {
 
   const lastHash = lastBlock.hash;
 
-  let { difficulty } = lastBlock.hash;
+  let { difficulty } = lastBlock;
+
+  console.log(difficulty)
 
   let nonce = 0;
 
