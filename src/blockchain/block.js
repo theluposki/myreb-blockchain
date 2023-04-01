@@ -13,14 +13,13 @@ export const GENESIS = () => {
 }
 
 const Block = ({ timestamp, lastHash, hash, data, nonce, difficulty }) => {
-  difficulty = DIFFICULTY
   return {
     timestamp,
     lastHash,
     hash,
     data: JSON.stringify(data),
     nonce,
-    difficulty
+    difficulty: difficulty || DIFFICULTY
   }
 }
 
